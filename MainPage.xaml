@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:MotionWatch.ViewModels"
+             x:Class="MotionWatch.MainPage"
+             x:DataType="vm:MainViewModel"
+             Title="MotionWatch">
+    <Grid RowDefinitions="Auto,*,2*" Padding="20" RowSpacing="12">
+        <HorizontalStackLayout Spacing="20" HorizontalOptions="Center">
+            <Label Text="{Binding Estado}" FontSize="18" />
+            <Label Text="{Binding Latencia}" FontSize="18" />
+        </HorizontalStackLayout>
+
+        <Label Grid.Row="1" Text="{Binding Flecha}" FontSize="120"
+               HorizontalOptions="Center" VerticalOptions="Center" />
+
+        <ScrollView Grid.Row="2">
+            <VerticalStackLayout BindableLayout.ItemsSource="{Binding Registro}">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate x:DataType="x:String">
+                        <Label Text="{Binding .}" FontSize="16" Padding="4" />
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>
