@@ -1,0 +1,2 @@
+# Wear OS proguard rules
+
